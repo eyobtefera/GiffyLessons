@@ -1,10 +1,12 @@
 var GphApiClient = require("giphy-js-sdk-core");
 client = GphApiClient("KKE5dxXzOHTY1cqjgcsDGkxXY44AeF6V");
 
-function gif(title, id, url){
-    this.title = title;
-    this.id = id;
-    this.url = url;
+class gif {
+    constructor(title, id, url) {
+        this.title = title;
+        this.id = id;
+        this.url = url;
+    }
 }
 
 function gifSearch(search, rating) {
