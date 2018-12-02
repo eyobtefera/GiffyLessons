@@ -1,14 +1,14 @@
 var LessonDataPlugin = function(){
     var lessonStore = this.namespace('lesson');
     return{
-        set: function(super_fn, lesson, gif){
+        set: function(super_fn, key, value){
             var lesson = lessonStore.get(key) || []
-            lesson.push(gif);
-            lessonStore.set(lesson, gif);
+            lesson.push(value);
+            lessonStore.set(key, lesson);
             return super_fn();
         },
-        getGifs: function(lesson){
-            return lessonStore.get(lesson);
+        getGifs: function(key){
+            return lessonStore.get(key);
         }
     }
 }
@@ -19,5 +19,5 @@ function storeLesson(lessonName, gif){
 }
 
 function getLesson(lessonName){
-    store.getLesson("lesson");
+    return store.get(lessonName);
 }

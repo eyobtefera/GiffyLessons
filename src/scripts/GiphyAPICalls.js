@@ -1,10 +1,9 @@
-var GphApiClient = require("giphy-js-sdk-core");
-client = GphApiClient("KKE5dxXzOHTY1cqjgcsDGkxXY44AeF6V");
+//var GphApiClient = require("giphy-js-sdk-core");
+//client = GphApiClient("KKE5dxXzOHTY1cqjgcsDGkxXY44AeF6V");
 
 class gif {
-    constructor(title, id, url) {
+    constructor(url, title) {
         this.title = title;
-        this.id = id;
         this.url = url;
     }
 }
@@ -14,12 +13,14 @@ function gifSearch(search, rating) {
     client.search('gifs', { "q": search, "rating": rating })
         .then((response) => {
             response.data.forEach((gifObject) => {
-                gifs.push(new gif(gifObject.data.title, gifObject.data.id, gifObject.data.embed_url))
+                title = gifObject.title;
+                id = gifObject.id;
+                url = gifObject.embed_url; 
+                gifs.push(new gif(url, title));
             })
-            console.log(gifs);
-            return gifs;
         })
         .catch((err) => {
             throw "API did not send a response";
         })
+    return gifs;
 }

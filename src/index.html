@@ -13,6 +13,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script src="scripts/bundle.js"></script>
     <script src="scripts/GiphyAPICalls.js"></script>
     <script src="store.js-master/dist/store.everything.min.js"></script>
@@ -24,7 +26,12 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <script>
-           gifSearch("happy", "pg-13");
+        gifs = gifSearch("happy", "pg-13");
+    </script>
+    <script>
+        console.log(gifs);
+        storeLesson("Lesson1", gifs);
+        console.log(store.get("Lesson1"));
     </script>
     <script src="" async defer></script>
 </body>
