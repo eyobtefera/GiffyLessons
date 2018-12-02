@@ -6,17 +6,27 @@ class gif {
         this.title = title;
         this.url = url;
     }
+
+    getTitle() {
+        return this.title;
+    }
+
+    getUrl() {
+        return this.url;
+    }
 }
 
 function gifSearch(search, rating) {
     var gifs = [];
+    var i = 0;
     client.search('gifs', { "q": search, "rating": rating })
         .then((response) => {
             response.data.forEach((gifObject) => {
                 title = gifObject.title;
                 id = gifObject.id;
-                url = gifObject.embed_url; 
-                gifs.push(new gif(url, title));
+                url = gifObject.embed_url;
+                gifs[i] = (new gif(url, title));
+                i = i + 1;
             })
         })
         .catch((err) => {
