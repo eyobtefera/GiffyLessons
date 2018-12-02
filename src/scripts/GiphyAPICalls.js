@@ -28,9 +28,10 @@ function gifSearch(search, rating) {
                 gifs[i] = (new gif(url, title));
                 i = i + 1;
             })
+            console.log(gifs[0]);
+            return gifs;
         })
         .catch((err) => {
             throw "API did not send a response";
         })
-    return gifs;
 }

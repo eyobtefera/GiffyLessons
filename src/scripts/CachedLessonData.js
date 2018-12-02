@@ -1,7 +1,7 @@
 function storeData(name, data){
-    localStorage.setItem("lesson", JSON.stringify(gifs));
+    localStorage.setItem(name, JSON.stringify(data));
 }
 
 function getData(name){
-    localStorage.getItem("lesson");
+    localStorage.getItem(JSON.parse(name));
 }
