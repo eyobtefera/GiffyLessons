@@ -1,3 +1,5 @@
+//var store = require('store');
+
 var LessonDataPlugin = function(){
     var lessonStore = this.namespace('lesson');
     return{
