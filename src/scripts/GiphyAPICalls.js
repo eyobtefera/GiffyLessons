@@ -16,10 +16,24 @@ class gif {
     }
 }
 
+async function getGifs(search, rating){
+    try{
+        let response = await gifSearch(search, rating);
+        let processed_response = await processGifs(response);
+        
+        console.log(processed_response);
+        return processed_response;
+    }
+    catch(e){
+        console.log(e);
+        throw e;
+    }
+}
+
 function gifSearch(search, rating) {
     var gifs = [];
     var i = 0;
-    client.search('gifs', { "q": search, "rating": rating })
+    var found = client.search('gifs', { "q": search, "rating": rating })
         .then((response) => {
             response.data.forEach((gifObject) => {
                 title = gifObject.title;
@@ -28,10 +42,13 @@ function gifSearch(search, rating) {
                 gifs[i] = (new gif(url, title));
                 i = i + 1;
             })
-            console.log(gifs[0]);
+            return gifs;
+        }).then((response) => {
             return gifs;
         })
         .catch((err) => {
             throw "API did not send a response";
         })
+    return found;
 }
+
