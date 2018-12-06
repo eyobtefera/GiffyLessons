@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>Edit Lesson</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="vendor/jquery-ui-1.12.1/jquery-ui.min.css"
+        />
+        <script src="vendor/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+        <script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+        <!-- Custom styles for this template -->
+        <link href="css/edit.css" rel="stylesheet" />
+
+        <script>
+            $(function() {
+                $("#includedLessons").sortable({
+                    tolerance: "pointer",
+                    revert: "invalid",
+                    placeholder: "placeholder portfolio-item",
+                    forceHelperSize: true
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Giffy Lessons</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"
+                                >Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My Lessons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Create a Lesson</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Browse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Page Heading -->
+            <h1 class="my-4">Edit Lesson</h1>
+        </div>
+
+        <!-- Page Content -->
+        <div class="container testimonial-group ">
+            <h3 class="my-4">Included Gifs:</h3>
+            <div class="row" id="includedLessons">
+                <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea">
+                                    Description:
+                                </label>
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea"
+                                    >Description:</label
+                                >
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea"
+                                    >Description:</label
+                                >
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea"
+                                    >Description:</label
+                                >
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea"
+                                    >Description:</label
+                                >
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="descriptionTextArea"
+                                    >Description:</label
+                                >
+                                <textarea
+                                    class="form-control rounded-0"
+                                    id="descriptionTextArea"
+                                    rows="3"
+                                ></textarea>
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger btn-sm delete-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Delete Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+        <!-- Page Content -->
+        <div class="container">
+            <h3 class="my-4">Add New Gifs:</h3>
+            <div class="row search-row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search gifs..."
+                        />
+                        <span class="input-group-btn ">
+                            <button
+                                class="btn btn-primary search-button"
+                                type="button"
+                            >
+                                Search
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 add-card">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-success btn-sm add-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Add Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs- add-card">
+                    <div class="card h-100">
+                        <img
+                            class="card-img-top"
+                            src="http://placehold.it/700x400"
+                            alt=""
+                        />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="text-center" style="width:100%">
+                                    <button
+                                        type="button"
+                                        class="btn btn-success btn-sm add-gif-button"
+                                    >
+                                        <span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Add Gif
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <!--
+            <footer class="py-5 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">
+                        Copyright &copy; Your Website 2018
+                    </p>
+                </div>
+            </footer>
+        -->
+
+        <!-- Bootstrap core JavaScript -->
+        <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
