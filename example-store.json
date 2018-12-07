@@ -1,0 +1,32 @@
+{
+    "lessons": [
+        {
+            "name": "Lesson 1",
+            "description": "Description of lesson",
+            "gifs": [
+                {
+                    "url": "https://gph.is/1J3zZ7Q",
+                    "description": "Test Description"
+                },
+                {
+                    "url": "https://gph.is/2RSuQtS",
+                    "description": "Test Description Seth"
+                }
+            ]
+        },
+        {
+            "name": "Lesson 2",
+            "description": "Description of lesson 2",
+            "gifs": [
+                {
+                    "url": "https://giphy.com/embed/9oIt0mSaoMVdRv3fBW?video=0",
+                    "description": "Test Description 2 "
+                },
+                {
+                    "url": "https://giphy.com/embed/9oIt0mSaoMVdRv3fBW?video=0",
+                    "description": "Test Description Seth 2"
+                }
+            ]
+        }
+    ]
+}

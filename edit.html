@@ -22,17 +22,6 @@
 
         <!-- Custom styles for this template -->
         <link href="css/edit.css" rel="stylesheet" />
-
-        <script>
-            $(function() {
-                $("#includedLessons").sortable({
-                    tolerance: "pointer",
-                    revert: "invalid",
-                    placeholder: "placeholder portfolio-item",
-                    forceHelperSize: true
-                });
-            });
-        </script>
     </head>
 
     <body>
@@ -75,6 +64,25 @@
         <div class="container">
             <!-- Page Heading -->
             <h1 class="my-4">Edit Lesson</h1>
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Lesson name:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="lessonNameInput"
+                                placeholder="Enter name"
+                            />
+                            <small id="emailHelp" class="form-text text-muted"
+                                >We'll choose a defualt name if left
+                                blank</small
+                            >
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <!-- Page Content -->
@@ -93,176 +101,6 @@
                                 <label for="descriptionTextArea">
                                     Description:
                                 </label>
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea"
-                                    >Description:</label
-                                >
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea"
-                                    >Description:</label
-                                >
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea"
-                                    >Description:</label
-                                >
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea"
-                                    >Description:</label
-                                >
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3  portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea"
-                                    >Description:</label
-                                >
                                 <textarea
                                     class="form-control rounded-0"
                                     id="descriptionTextArea"
@@ -382,5 +220,8 @@
         <!-- Bootstrap core JavaScript -->
         <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="scripts/CachedLessonData.js"></script>
+        <script src="scripts/model.js"></script>
+        <script src="scripts/edit.js"></script>
     </body>
 </html>
