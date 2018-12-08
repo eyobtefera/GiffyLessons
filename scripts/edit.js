@@ -1,5 +1,7 @@
 window.onload = loadPage();
 
+var searchResults;
+
 function lessonIndex() {
     var vars = {};
     var parts = window.location.href.replace(
@@ -14,8 +16,6 @@ function lessonIndex() {
 function loadPage() {
     $(function() {
         $("#includedLessons").sortable({
-            cursur: "crosshair",
-            revert: true,
             start: function(event, ui) {
                 $(ui.item).data("startindex", ui.item.index());
             },
@@ -33,8 +33,23 @@ function loadPage() {
         });
     });
 
-    $("#lessonNameInput").val(Data.getModel().getLesson(lessonIndex()).name);
+    // search button callback
+    var searchButton = $("#searchGifs");
+    searchButton.click(function(e) {
+        var text = $("#searchInput").val();
+        searchGifs(text);
+    });
 
+    // set name of lesson from data structure
+    if (Data.getModel().getLesson(lessonIndex())) {
+        $("#lessonNameInput").val(
+            Data.getModel().getLesson(lessonIndex()).name
+        );
+    } else {
+        $("#lessonNameInput").val("");
+    }
+
+    // callback for changing name text
     $("#lessonNameInput").change(function() {
         Data.getModel().setLessonName(
             lessonIndex(),
@@ -42,12 +57,31 @@ function loadPage() {
         );
     });
 
+    // set name of lesson from data structure
+    if (Data.getModel().getLesson(lessonIndex())) {
+        $("#lessonDescriptionInput").val(
+            Data.getModel().getLesson(lessonIndex()).description
+        );
+    } else {
+        $("#lessonDescriptionInput").val("");
+    }
+
+    // callback for changing name text
+    $("#lessonDescriptionInput").change(function() {
+        Data.getModel().setLessonDescription(
+            lessonIndex(),
+            $("#lessonDescriptionInput").val()
+        );
+    });
+
+    // clear then load gifs from lesson
     $("#includedLessons").empty();
     var lesson = Data.getModel().getLesson(lessonIndex());
     loadLesson(lesson);
     refreshCallbacks();
 }
 
+// empty and refresh view that shows gifs in lesson
 function refreshFromData() {
     $("#includedLessons").empty();
     var lesson = Data.getModel().getLesson(lessonIndex());
@@ -55,7 +89,20 @@ function refreshFromData() {
     refreshCallbacks();
 }
 
+// loads view
 function loadLesson(lesson) {
+    if (lesson.gifs.length === 0) {
+        var html = `
+            <div class="col-12">
+                <div class="alert alert-light" role="alert">
+                    You don't have any gifs in this lesson yet. Add some below!
+                </div>
+            </div>
+        `;
+        var message = $.parseHTML(html);
+        $("#includedLessons").append(message);
+        return;
+    }
     for (let gif of lesson.gifs) {
         var gifObj = createAddedGif(gif);
         $("#includedLessons").append(gifObj);
@@ -110,17 +157,115 @@ function createAddedGif(gif) {
 
 function refreshCallbacks() {
     var deleteButtons = $(".delete-gif-button");
+    deleteButtons.off();
     deleteButtons.click(function(e) {
         var index = $(this)
             .closest(".portfolio-item")
             .index();
         deleteGif(index);
     });
-}
 
-// Actions:
+    var addButtons = $(".add-gif-button");
+    addButtons.off();
+    addButtons.click(function(e) {
+        var index = $(this)
+            .closest(".gif-container")
+            .index();
+        addGif(index);
+    });
+}
 
 function deleteGif(index) {
     Data.getModel().removeGif(lessonIndex(), index);
     refreshFromData();
 }
+
+function searchGifs(text) {
+    $("#searchBarRow")
+        .nextAll("div")
+        .remove();
+    if (!text || text === "") {
+        var html = `<div class="row" id="searchAlert">
+                <div class="col-12">
+                    <div class="alert alert-warning" role="alert">
+                        Please input a search query!
+                    </div>
+                </div>
+            </div>`;
+        var message = $.parseHTML(html);
+        $("#searchBarRow").after(message);
+        return;
+    }
+
+    var html = `<div class="loader"></div>`;
+    var loader = $.parseHTML(html);
+    $("#searchGifs").attr("disabled", "disabled");
+    $("#searchGifs").html(loader);
+
+    var searched = gifSearch(text, "pg").then(function(result) {
+        console.log(result);
+        searchResults = result;
+        $("#searchGifs").html("Search");
+        $("#searchGifs").attr("disabled", "enabled");
+        var html = `<div class="row" id="gifs-output"></div>`;
+
+        $("#searchBarRow").after($.parseHTML(html));
+
+        for (let gif of result) {
+            var gifObj = createSearchedGif(gif);
+            $("#gifs-output").append(gifObj);
+        }
+        refreshCallbacks();
+    });
+}
+function createSearchedGif(gif) {
+    var gifUrl = gif.url;
+    var html = `<div class="gif-container">
+                <img src="${gif.url}" class="gif">
+                <div class="middle">
+                    <button type="button" class="btn btn-success add-gif-button">Add</button>
+                </div>
+            </div>`;
+
+    return $.parseHTML(html);
+}
+
+function addGif(index) {
+    var selectedGif = searchResults[index];
+    Data.getModel().addGif(lessonIndex(), selectedGif);
+    refreshFromData();
+}
+
+// function createSearchedGif(gif) {
+//     var gifUrl = gif.url;
+//     var html =
+//         `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 add-card">
+//             <div class="card h-100">
+//                 <img
+//                     class="card-img-top"
+//                     src="` +
+//         gifUrl +
+//         `"
+//                     alt=""
+//                 />
+//                 <div class="card-body">
+//                     <div class="form-group">
+//                         <div class="text-center" style="width:100%">
+//                             <button
+//                                 type="button"
+//                                 class="btn btn-success btn-sm add-gif-button"
+//                             >
+//                                 <span
+//                                     class="glyphicon glyphicon-trash"
+//                                     aria-hidden="true"
+//                                 ></span>
+//                                 Add Gif
+//                             </button>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>`;
+
+//     return $.parseHTML(html);
+// }

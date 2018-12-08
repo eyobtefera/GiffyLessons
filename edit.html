@@ -22,6 +22,8 @@
 
         <!-- Custom styles for this template -->
         <link href="css/edit.css" rel="stylesheet" />
+        <script src="scripts/bundle.js"></script>
+        <script src="scripts/GiphyAPICalls.js"></script>
     </head>
 
     <body>
@@ -68,17 +70,30 @@
                 <div class="col-12">
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Lesson name:</label>
+                            <label for="lessonNameInput">Lesson name:</label>
                             <input
                                 type="text"
                                 class="form-control"
                                 id="lessonNameInput"
-                                placeholder="Enter name"
+                                placeholder="Enter lesson name..."
                             />
-                            <small id="emailHelp" class="form-text text-muted"
+                            <small
+                                id="lessonNameInputSmallLabel"
+                                class="form-text text-muted"
                                 >We'll choose a defualt name if left
                                 blank</small
                             >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lessonDescriptionInput"
+                                >Lesson description:</label
+                            >
+                            <textarea
+                                class="form-control"
+                                id="lessonDescriptionInput"
+                                placeholder="Enter description of lesson..."
+                            ></textarea>
                         </div>
                     </form>
                 </div>
@@ -88,41 +103,7 @@
         <!-- Page Content -->
         <div class="container testimonial-group ">
             <h3 class="my-4">Included Gifs:</h3>
-            <div class="row" id="includedLessons">
-                <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="descriptionTextArea">
-                                    Description:
-                                </label>
-                                <textarea
-                                    class="form-control rounded-0"
-                                    id="descriptionTextArea"
-                                    rows="3"
-                                ></textarea>
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger btn-sm delete-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="row" id="includedLessons"></div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
@@ -130,18 +111,20 @@
         <!-- Page Content -->
         <div class="container">
             <h3 class="my-4">Add New Gifs:</h3>
-            <div class="row search-row">
+            <div class="row search-row" id="searchBarRow">
                 <div class="col-12">
                     <div class="input-group">
                         <input
                             type="text"
                             class="form-control"
                             placeholder="Search gifs..."
+                            id="searchInput"
                         />
                         <span class="input-group-btn ">
                             <button
                                 class="btn btn-primary search-button"
                                 type="button"
+                                id="searchGifs"
                             >
                                 Search
                             </button>
@@ -150,59 +133,13 @@
                     <!-- /input-group -->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 add-card">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-success btn-sm add-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Add Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs- add-card">
-                    <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="http://placehold.it/700x400"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <div class="form-group">
-                                <div class="text-center" style="width:100%">
-                                    <button
-                                        type="button"
-                                        class="btn btn-success btn-sm add-gif-button"
-                                    >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Add Gif
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row" id="searchAlert">
+                <div class="col-12">
+                    <div class="alert alert-light" role="alert">
+                        Search for gifs to add to the lesson.
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
         <!-- /.container -->
 

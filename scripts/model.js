@@ -37,6 +37,11 @@ class Model {
                             description: "Test Description 6"
                         }
                     ]
+                },
+                {
+                    name: "",
+                    description: "Description of lesson",
+                    gifs: []
                 }
             ]
         };
@@ -55,8 +60,36 @@ class Model {
         this.data.lessons[i].gifs.splice(index, 1)[0];
     }
 
+    addGif(i, gif) {
+        var item = {
+            url: gif.url,
+            description: "",
+            images: gif.images
+        };
+        this.data.lessons[i].gifs.push(item);
+    }
+
     setLessonName(i, name) {
         this.data.lessons[i].name = name;
+    }
+
+    setLessonDescription(i, desc) {
+        this.data.lessons[i].description = desc;
+    }
+
+    save() {
+        storeData("lessonData", this.data);
+    }
+
+    load() {
+        var temp = getData("lessonData");
+        if (temp) {
+            this.data = temp;
+        } else {
+            this.data = {
+                lessons: []
+            };
+        }
     }
 }
 
