@@ -14,6 +14,8 @@ function lessonIndex() {
 }
 
 function loadPage() {
+    Data.getModel().load();
+
     $(function() {
         $("#includedLessons").sortable({
             start: function(event, ui) {
@@ -32,6 +34,10 @@ function loadPage() {
             }
         });
     });
+
+    $("#doneButton")
+        .parent()
+        .prop("href", `view.html?lessonIndex=${lessonIndex()}`);
 
     // search button callback
     var searchButton = $("#searchGifs");
@@ -113,7 +119,7 @@ function createAddedGif(gif) {
     var description = gif.description;
     var gifUrl = gif.url;
     var html =
-        `<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 portfolio-item">
+        `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 portfolio-item">
                     <div class="card h-100">
                         <img
                             class="card-img-top"
@@ -128,7 +134,7 @@ function createAddedGif(gif) {
                                     Description:
                                 </label>
                                 <textarea
-                                    class="form-control rounded-0"
+                                    class="form-control rounded-0 gifDescription"
                                     id="descriptionTextArea"
                                     rows="3"
                                 >` +
@@ -163,6 +169,15 @@ function refreshCallbacks() {
             .closest(".portfolio-item")
             .index();
         deleteGif(index);
+    });
+
+    var gifDescriptions = $(".gifDescription");
+    gifDescriptions.off();
+    gifDescriptions.change(function(e) {
+        var index = $(this)
+            .closest(".portfolio-item")
+            .index();
+        Data.getModel().setGifDescription(lessonIndex(), index, $(this).val());
     });
 
     var addButtons = $(".add-gif-button");
@@ -206,7 +221,7 @@ function searchGifs(text) {
         console.log(result);
         searchResults = result;
         $("#searchGifs").html("Search");
-        $("#searchGifs").attr("disabled", "enabled");
+        $("#searchGifs").removeAttr("disabled");
         var html = `<div class="row" id="gifs-output"></div>`;
 
         $("#searchBarRow").after($.parseHTML(html));
@@ -235,37 +250,3 @@ function addGif(index) {
     Data.getModel().addGif(lessonIndex(), selectedGif);
     refreshFromData();
 }
-
-// function createSearchedGif(gif) {
-//     var gifUrl = gif.url;
-//     var html =
-//         `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 add-card">
-//             <div class="card h-100">
-//                 <img
-//                     class="card-img-top"
-//                     src="` +
-//         gifUrl +
-//         `"
-//                     alt=""
-//                 />
-//                 <div class="card-body">
-//                     <div class="form-group">
-//                         <div class="text-center" style="width:100%">
-//                             <button
-//                                 type="button"
-//                                 class="btn btn-success btn-sm add-gif-button"
-//                             >
-//                                 <span
-//                                     class="glyphicon glyphicon-trash"
-//                                     aria-hidden="true"
-//                                 ></span>
-//                                 Add Gif
-//                             </button>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>`;
-
-//     return $.parseHTML(html);
-// }

@@ -1,130 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
 
-  <head>
+        <title>Giffy Lessons</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="vendor/jquery-ui-1.12.1/jquery-ui.min.css"
+        />
+        <script src="vendor/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+        <script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-    <title>Giffy Lessons</title>
+        <!-- Custom styles for this template -->
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="scripts/bundle.js"></script>
+        <script src="scripts/GiphyAPICalls.js"></script>
+    </head>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Giffy Lessons</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">My Lessons</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Create a Lesson</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Browse</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-      <!-- Page Heading -->
-      <h1 class="my-4">My Lessons
-      </h1>
-
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="bike.gif" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">How to Ride a Bike</a>
-              </h4>
-              <p class="card-text">Caption</p>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Giffy Lessons</a>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="drive.gif" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">How to Drive</a>
-              </h4>
-              <p class="card-text">Caption
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <!-- Page Heading -->
+
+            <div class="container" class=".titleContainer">
+                <!-- Page Heading -->
+
+                <button
+                    type="button"
+                    class="btn btn-success pull-right"
+                    id="newLessonButton"
+                >
+                    New Lesson
+                </button>
+                <h1 class="my-4">My Lessons</h1>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="eat.gif" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">How to Eat Quickly</a>
-              </h4>
-              <p class="card-text">Caption</p>
+
+            <div class="row" id="lessons">
+                <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card">
+                        <a href="#"
+                            ><img
+                                class="card-img-top"
+                                src="img/defualt.png"
+                                alt=""
+                        /></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#">How to Ride a Bike</a>
+                            </h4>
+                            <p class="card-text">Caption</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <!-- /.row -->
         </div>
-      </div>
-      <!-- /.row -->
+        <!-- /.container -->
 
-      <!-- Pagination -->
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-
-
-      <div class="row">
-      	<h1 class="my-4"> Example Lessons
-      	</h1>
-      </div>
-    </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
-
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="scripts/CachedLessonData.js"></script>
+        <script src="scripts/model.js"></script>
+        <script src="scripts/index.js"></script>
+    </body>
 </html>

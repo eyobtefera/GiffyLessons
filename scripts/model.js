@@ -51,13 +51,30 @@ class Model {
         return this.data.lessons[i];
     }
 
+    getLessons() {
+        return this.data.lessons;
+    }
+
+    createLesson() {
+        var index = this.data.lessons.length;
+        this.data.lessons.push({
+            name: "Lesson " + index,
+            description: "",
+            gifs: []
+        });
+        this.save();
+        return index;
+    }
+
     reorderGifs(i, newIndex, oldIndex) {
         const movedItem = this.data.lessons[i].gifs.splice(oldIndex, 1)[0];
         this.data.lessons[i].gifs.splice(newIndex, 0, movedItem);
+        this.save();
     }
 
     removeGif(i, index) {
         this.data.lessons[i].gifs.splice(index, 1)[0];
+        this.save();
     }
 
     addGif(i, gif) {
@@ -67,14 +84,22 @@ class Model {
             images: gif.images
         };
         this.data.lessons[i].gifs.push(item);
+        this.save();
     }
 
     setLessonName(i, name) {
         this.data.lessons[i].name = name;
+        this.save();
     }
 
     setLessonDescription(i, desc) {
         this.data.lessons[i].description = desc;
+        this.save();
+    }
+
+    setGifDescription(lessonIndex, gifIndex, desc) {
+        this.data.lessons[lessonIndex].gifs[gifIndex].description = desc;
+        this.save();
     }
 
     save() {
