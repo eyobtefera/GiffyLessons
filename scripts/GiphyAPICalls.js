@@ -1,6 +1,3 @@
-//var GphApiClient = require("giphy-js-sdk-core");
-//client = GphApiClient("KKE5dxXzOHTY1cqjgcsDGkxXY44AeF6V");
-
 class gif {
     constructor(url, title, images) {
         this.title = title;
