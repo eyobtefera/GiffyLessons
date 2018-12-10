@@ -21,24 +21,11 @@ class gif {
     }
 }
 
-async function getGifs(search, rating) {
-    try {
-        let response = await gifSearch(search, rating);
-        let processed_response = await processGifs(response);
-
-        console.log(processed_response);
-        return processed_response;
-    } catch (e) {
-        console.log(e);
-        throw e;
-    }
-}
-
 function gifSearch(search, rating) {
     var gifs = [];
     var i = 0;
     var found = client
-        .search("gifs", { q: search, rating: rating })
+        .search("gifs", { q: search, rating: rating, limit: 100})
         .then(response => {
             response.data.forEach(gifObject => {
                 title = gifObject.title;
