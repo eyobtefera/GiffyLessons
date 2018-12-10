@@ -23,3 +23,46 @@ body {
     margin-top: 10px;
     float: right;
 }
+
+#gifCarousel {
+    max-height: 700px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    color: black;
+}
+
+.stepHeader {
+    position: absolute;
+    bottom: -30px;
+}
+
+.stepDescription {
+    position: absolute;
+    bottom: -40px;
+    text-align: left;
+    transform: translate(0%, 100%);
+    -ms-transform: translate(0%, 100%);
+}
+
+.carousel-inner {
+    overflow: visible;
+}
+
+.carousel-indicators li {
+    background-color: #6c757d;
+}
+.carousel-indicators .active {
+    background-color: #212529;
+}
+
+#lessonDescription {
+    font-size: 20px;
+    font-weight: 300;
+}

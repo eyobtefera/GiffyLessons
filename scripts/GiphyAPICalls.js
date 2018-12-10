@@ -44,7 +44,7 @@ function gifSearch(search, rating) {
                 title = gifObject.title;
                 id = gifObject.id;
                 url = gifObject.images.original.url;
-                gifs[i] = new gif(url, title);
+                gifs[i] = new gif(url, title, gifObject.images);
                 i = i + 1;
             });
             return gifs;

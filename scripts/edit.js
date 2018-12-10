@@ -39,6 +39,12 @@ function loadPage() {
         .parent()
         .prop("href", `view.html?lessonIndex=${lessonIndex()}`);
 
+    var confirmDeleteButton = $("#confirmDeleteButton");
+    confirmDeleteButton.click(function(e) {
+        Data.getModel().deleteLesson(lessonIndex());
+        window.location.href = "index.html";
+    });
+
     // search button callback
     var searchButton = $("#searchGifs");
     searchButton.click(function(e) {
@@ -117,9 +123,9 @@ function loadLesson(lesson) {
 
 function createAddedGif(gif) {
     var description = gif.description;
-    var gifUrl = gif.url;
+    var gifUrl = gif.images.fixed_height.url;
     var html =
-        `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 portfolio-item">
+        `<div class="col-lg-3 col-sm-4 col-xs-6 portfolio-item">
                     <div class="card h-100">
                         <img
                             class="card-img-top"
@@ -187,6 +193,7 @@ function refreshCallbacks() {
             .closest(".gif-container")
             .index();
         addGif(index);
+        $("#includedLessons").scrollLeft($(document).outerWidth());
     });
 }
 

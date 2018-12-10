@@ -1,54 +1,17 @@
 class Model {
     constructor() {
         this.data = {
-            lessons: [
-                {
-                    name: "Lesson 1",
-                    description: "Description of lesson",
-                    gifs: [
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 1"
-                        },
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 2"
-                        },
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 3"
-                        },
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 4"
-                        },
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 5"
-                        },
-                        {
-                            url:
-                                "https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif",
-                            description: "Test Description 6"
-                        }
-                    ]
-                },
-                {
-                    name: "",
-                    description: "Description of lesson",
-                    gifs: []
-                }
-            ]
+            lessons: []
         };
     }
 
     getLesson(i) {
         return this.data.lessons[i];
+    }
+
+    deleteLesson(i) {
+        this.data.lessons.splice(i, 1);
+        this.save();
     }
 
     getLessons() {
@@ -112,7 +75,7 @@ class Model {
             this.data = temp;
         } else {
             this.data = {
-                lessons: []
+                lessons: [exampleLesson]
             };
         }
     }

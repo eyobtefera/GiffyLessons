@@ -20,6 +20,12 @@ body {
     float: right;
 }
 
+#deleteButton {
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+}
+
 .portfolio-item {
     margin-bottom: 30px;
 }
@@ -34,9 +40,28 @@ body {
     flex-wrap: nowrap;
 }
 
-.testimonial-group > .row > .col-lg-4 .col-md-4 .col-sm-4 .col-xs-6 {
+.testimonial-group > .row > .col-sm-4 .col-xs-6 {
     display: inline-block;
     float: none;
+}
+
+.testimonial-group > .row > .col-xs-6 {
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+@media (min-width: 576px) {
+    .testimonial-group > .row > .col-sm-4 {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+}
+
+@media (min-width: 992px) {
+    .testimonial-group > .row > .col-lg-3 {
+        flex: 0 0 23%;
+        max-width: 23%;
+    }
 }
 
 .delete-gif-button {
@@ -56,6 +81,7 @@ body {
 .card-body {
     padding: 10px;
     padding-bottom: 45px;
+    height: 50%;
 }
 
 .add-card {
@@ -64,6 +90,8 @@ body {
 
 .card-img-top {
     cursor: col-resize;
+    max-height: 50%;
+    height: 50%;
 }
 
 .search-row {
@@ -160,3 +188,105 @@ body {
 .add-gif-button {
     font-size: 16px;
 }
+
+#includedLessons {
+    overflow-x: scroll;
+}
+
+.gifDescription {
+    width: 100%;
+    height: 100%;
+}
+
+.smallAlert {
+    /* margin: 0px; */
+    padding: 0px;
+    margin-bottom: 16px;
+}
+
+/* 
+ * DELETE COFIRM MODAL STYLING
+ * Taken from: https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=delete-confirmation-modal
+ */
+.modal-confirm {
+    color: #636363;
+    width: 400px;
+}
+.modal-confirm .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+}
+.modal-confirm .modal-header {
+    position: relative;
+}
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 0 auto;
+}
+.modal-confirm .close {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+}
+.modal-confirm .modal-body {
+    color: #999;
+    font-size: 16px;
+}
+.modal-confirm .modal-footer {
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 13px;
+    margin: 0 auto;
+    padding-top: 0px;
+}
+.modal-confirm .modal-footer a {
+    color: #999;
+}
+.modal-confirm .icon-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+    color: #f15e5e;
+    font-size: 46px;
+    display: inline-block;
+    margin-top: 13px;
+}
+.modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    /* background: #60c7c1; */
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    min-width: 120px;
+    border: none;
+    min-height: 40px;
+    border-radius: 3px;
+    margin: 0 5px;
+    outline: none !important;
+}
+/* .modal-confirm .btn-info {
+    background: #c1c1c1;
+}
+.modal-confirm .btn-info:hover,
+.modal-confirm .btn-info:focus {
+    background: #a8a8a8;
+} */
+/* .modal-confirm .btn-danger {
+    background: #f15e5e;
+}
+.modal-confirm .btn-danger:hover,
+.modal-confirm .btn-danger:focus {
+    background: #ee3535;
+} */
