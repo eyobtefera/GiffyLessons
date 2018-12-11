@@ -20,7 +20,7 @@ function loadLessons() {
         var html = `
             <div class="col-12">
                 <div class="alert alert-secondary" role="alert">
-                You don't have any created lessons. Click  <a href="#" class="alert-link">here</a> to create one.
+                You don't have any created lessons. Click "New Lesson" to create one.
                 </div>
             </div>
         `;

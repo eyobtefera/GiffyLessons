@@ -20,6 +20,9 @@ function loadPage() {
     $("#gifCarousel").append(createCarousel());
 
     $("#lessonName").text(Data.getModel().getLesson(lessonIndex()).name);
+    $("#lessonDescription").text(
+        Data.getModel().getLesson(lessonIndex()).description
+    );
 
     $("#editLessonButton")
         .parent()
@@ -28,6 +31,17 @@ function loadPage() {
 
 function createCarousel() {
     var gifs = Data.getModel().getLesson(lessonIndex()).gifs;
+
+    if (gifs.length === 0) {
+        var html = `
+            <div class="alert alert-secondary" role="alert">
+            This lesson doesn't have any gifs yet. Edit the lesson to add some!
+            </div>
+        `;
+        var message = $.parseHTML(html);
+
+        return message;
+    }
 
     var indicators = ``;
 
@@ -55,7 +69,8 @@ function createCarousel() {
 
     var html = `<div
         id="carouselExampleIndicators"
-        class="carousel slide"
+        class="carousel"
+        data-interval="false"
         data-ride="carousel"
     >
         <ol class="carousel-indicators">
@@ -100,8 +115,8 @@ function createGifString(index, gif, activeString) {
             alt="Step ${index + 1}"
         />
         <div class="carousel-caption d-none d-md-block">
-            <h5>Step ${index + 1}</h5>
-            <p>${gif.description}</p>
+            <h5 class="stepHeader">Step ${index + 1}</h5>
+            <p class="stepDescription">${gif.description}</p>
         </div>
     </div>`;
 }
