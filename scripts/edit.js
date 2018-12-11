@@ -280,7 +280,7 @@ function searchGifs(text) {
     var searched = gifSearch(text, "pg").then(function(result) {
         page = 1;
         searchResults = result;
-        $("#searchGifs").html("Search");
+        $("#searchGifs").html(`<i class="fas fa-search"></i>`);
         $("#searchGifs").removeAttr("disabled");
         var html = `<div class="row" id="gifs-output"></div>`;
 
