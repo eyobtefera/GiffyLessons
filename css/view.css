@@ -32,6 +32,8 @@ p {
 #editLessonButton {
     margin-top: 5px;
     float: right;
+    text-align: center;
+    padding-right: 9px;
 }
 
 #gifCarousel {
