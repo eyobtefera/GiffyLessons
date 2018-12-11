@@ -45,3 +45,14 @@ p {
     color: #343a40;
     font-size: 12pt;
 }
+
+.card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card {
+    min-height: 100%;
+}

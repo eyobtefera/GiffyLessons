@@ -175,11 +175,8 @@ function createAddedGif(gif) {
                                         class="btn btn-danger btn-sm delete-gif-button"
                                         
                                     >
-                                        <span
-                                            class="glyphicon glyphicon-trash"
-                                            aria-hidden="true"
-                                        ></span>
-                                        Delete Gif
+                                    <i class="fas fa-trash-alt"></i>
+                                        
                                     </button>
                                 </div>
                             </div>
@@ -223,7 +220,16 @@ function refreshCallbacks() {
             .closest(".gif-container")
             .index();
         addGif(index);
-        $("#includedLessons").scrollLeft($(document).outerWidth());
+        $("#includedLessons").scrollLeft(100000);
+        $(".add-gif-button")
+            .eq(index)
+            .html(`<i class="fas fa-check"></i>`);
+
+        setTimeout(function() {
+            $(".add-gif-button")
+                .eq(index)
+                .html(`<i class="fas fa-plus"></i>`);
+        }, 5000);
     });
 }
 
@@ -293,7 +299,7 @@ function createSearchedGif(gif) {
     var html = `<div class="gif-container">
                 <img src="${gif.url}" class="gif loadingImage">
                 <div class="middle">
-                    <button type="button" class="btn btn-success add-gif-button">Add</button>
+                    <button type="button" class="btn btn-outline-success add-gif-button"><i class="fas fa-plus"></i></button>
                 </div>
             </div>`;
 
