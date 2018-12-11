@@ -129,7 +129,7 @@ function createCarousel() {
 function createGifString(index, gif, activeString) {
     return `<div class="carousel-item  ${activeString}">
         <img
-            class="d-block"
+            class="d-block loadingImage"
             src="${gif.images.fixed_height.url}"
             alt="Step ${index + 1}"
         />

@@ -153,7 +153,7 @@ function createAddedGif(gif) {
 
                     <div class="card-img-container">
                             <img
-                                class="card-img-top"
+                                class="card-img-top loadingImage"
                                 src="${gifUrl}"
                                 alt=""
                             />
@@ -167,8 +167,7 @@ function createAddedGif(gif) {
                                     class="form-control rounded-0 gifDescription"
                                     id="descriptionTextArea"
                                     rows="3"
-                                >${description}
-                                 </textarea>
+                                >${description}</textarea>
                                 <div class="text-center" style="width:100%">
                                     <button
                                         type="button"

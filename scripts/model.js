@@ -111,7 +111,7 @@ class Model {
      * @param {*} desc new description
      */
     setGifDescription(i, gifIndex, desc) {
-        this.data.lessons[i].gifs[gifIndex].description = desc;
+        this.data.lessons[i].gifs[gifIndex].description = desc.trim();
         this.save();
     }
 
