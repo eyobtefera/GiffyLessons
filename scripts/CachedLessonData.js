@@ -11,3 +11,11 @@ function getData(name) {
 
     return JSON.parse(dataString);
 }
+
+function deleteLesson(name){
+    localStorage.removeItem(name);
+}
+
+function clearLessons(){
+    localStorage.clear();
+}
