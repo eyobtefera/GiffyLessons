@@ -21,16 +21,30 @@ class gif {
     }
 }
 
+var searching = false;
 /**
  * Search and return gif in from the Giphy API
  * @param {*} search search query
  * @param {*} rating ratings to limit results
  */
-function gifSearch(search, rating) {
+function gifSearch(search, rating, offset) {
+    if (!offset) {
+        offset = 0;
+    }
+
+    if (searching) {
+        return null;
+    }
+    searching = true;
     var gifs = [];
     var i = 0;
     var found = client
-        .search("gifs", { q: search, rating: rating, limit: 100 })
+        .search("gifs", {
+            q: search,
+            rating: rating,
+            limit: 25,
+            offset: offset
+        })
         .then(response => {
             response.data.forEach(gifObject => {
                 title = gifObject.title;
@@ -39,12 +53,15 @@ function gifSearch(search, rating) {
                 gifs[i] = new gif(url, title, gifObject.images);
                 i = i + 1;
             });
+            searching = false;
             return gifs;
         })
         .then(response => {
+            searching = false;
             return gifs;
         })
         .catch(err => {
+            searching = false;
             throw "API did not send a response";
         });
     return found;

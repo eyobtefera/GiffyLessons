@@ -241,11 +241,15 @@ function deleteGif(index) {
     refreshFromData();
 }
 
+var previousQuery = "";
+var page = 0;
+
 /**
  * Searches and loads the results of the API call
  * @param {*} text search query
  */
 function searchGifs(text) {
+    page = 0;
     // Clear previous results
     $("#searchBarRow")
         .nextAll("div")
@@ -272,7 +276,9 @@ function searchGifs(text) {
     $("#searchGifs").html(loader);
 
     // Make query and set up callback
+    previousQuery = text;
     var searched = gifSearch(text, "pg").then(function(result) {
+        page = 1;
         searchResults = result;
         $("#searchGifs").html("Search");
         $("#searchGifs").removeAttr("disabled");
@@ -313,4 +319,52 @@ function addGif(index) {
     var selectedGif = searchResults[index];
     Data.getModel().addGif(lessonIndex(), selectedGif);
     refreshFromData();
+}
+
+$(window).scroll(function() {
+    if (page === 0) {
+        return;
+    }
+    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        queryMoreSearchedGifs(previousQuery, page * 25);
+    }
+
+    // handle scroll to top
+    var height = $(window).scrollTop();
+    if (height > 300) {
+        $("#scrollToTopButton").fadeIn();
+    } else {
+        $("#scrollToTopButton").fadeOut();
+    }
+});
+
+/*Scroll to top when arrow up clicked BEGIN*/
+
+$(document).ready(function() {
+    $("#scrollToTopButton").click(function(event) {
+        event.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+});
+
+function queryMoreSearchedGifs(text, offset) {
+    if (!text || text === "") {
+        return;
+    }
+
+    // Make query and set up callback
+    var searched = gifSearch(text, "pg", offset).then(function(result) {
+        console.log(result);
+        page++;
+        console.log(page);
+        searchResults = searchResults.concat(result);
+
+        // Append each result
+        for (let gif of result) {
+            var gifObj = createSearchedGif(gif);
+            $("#gifs-output").append(gifObj);
+        }
+        refreshCallbacks();
+    });
 }

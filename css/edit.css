@@ -220,6 +220,22 @@
     }
 }
 
+/*
+ * Scroll to the top button
+ */
+
+#scrollToTopButton {
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+
+    text-align: center;
+}
+
 /* 
  * DELETE CONFIRM MODAL STYLING
  * Taken from: https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=delete-confirmation-modal
