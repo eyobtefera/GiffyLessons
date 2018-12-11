@@ -98,10 +98,8 @@ function createCarousel() {
             role="button"
             data-slide="prev"
         >
-            <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-            ></span>
+
+            <i class="fas fa-chevron-left"></i>
             <span class="sr-only">Previous</span>
         </a>
         <a
@@ -110,10 +108,7 @@ function createCarousel() {
             role="button"
             data-slide="next"
         >
-            <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-            ></span>
+            <i class="fas fa-chevron-right"></i>
             <span class="sr-only">Next</span>
         </a>
     </div>`;
