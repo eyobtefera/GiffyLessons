@@ -2,6 +2,9 @@
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+ *
+ * This page includes the css for the edit.html page
+ *
  */
 
 #doneButton {
@@ -113,35 +116,6 @@
     box-shadow: 0px 0px 10px #888;
 }
 
-.loader {
-    border: 2px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 2px solid #3498db;
-    width: 24px;
-    height: 24px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 .gifs-output {
     display: flex;
     flex-wrap: wrap;
@@ -210,14 +184,44 @@
     font-size: 10pt;
 }
 
+/* Loading CSS */
 .loadingImage {
     background: transparent
         url("http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif")
         center no-repeat;
 }
 
+.loader {
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 2px solid #3498db;
+    width: 24px;
+    height: 24px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* 
- * DELETE COFIRM MODAL STYLING
+ * DELETE CONFIRM MODAL STYLING
  * Taken from: https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=delete-confirmation-modal
  */
 .modal-confirm {

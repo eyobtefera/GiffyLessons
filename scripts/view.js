@@ -1,5 +1,8 @@
 window.onload = loadPage();
 
+/**
+ * Get the lesson index of the lesson being edited from the URL
+ */
 function lessonIndex() {
     var vars = {};
     var parts = window.location.href.replace(
@@ -11,6 +14,9 @@ function lessonIndex() {
     return vars["lessonIndex"];
 }
 
+/**
+ * Loads the view of the page, setting up elements based on the selected lesson.
+ */
 function loadPage() {
     Data.getModel().load();
 
@@ -31,9 +37,13 @@ function loadPage() {
         .prop("href", `edit.html?lessonIndex=${lessonIndex()}`);
 }
 
+/**
+ * Create the image carousel for displaying the gifs in the lesson.
+ */
 function createCarousel() {
     var gifs = Data.getModel().getLesson(lessonIndex()).gifs;
 
+    // Display a message if there are no gifs
     if (gifs.length === 0) {
         var html = `
             <div class="alert alert-secondary" role="alert">
@@ -45,6 +55,7 @@ function createCarousel() {
         return message;
     }
 
+    // Build the carousel
     var indicators = ``;
 
     for (var i = 0; i < gifs.length; i++) {
@@ -109,6 +120,12 @@ function createCarousel() {
     return $.parseHTML(html);
 }
 
+/**
+ * Create the html in the carousel to contain the actual image
+ * @param {*} index index of the gif
+ * @param {*} gif the gif object
+ * @param {*} activeString whether or not the gif is active
+ */
 function createGifString(index, gif, activeString) {
     return `<div class="carousel-item  ${activeString}">
         <img

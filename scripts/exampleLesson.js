@@ -1,3 +1,6 @@
+/**
+ * This is an example data set with a lesson that is loaded on the first use of the application
+ */
 var exampleLesson = {
     name: "Example Lesson: How to handle finals week?",
     description: "Here are some critical steps to succeeding in your finals:)",

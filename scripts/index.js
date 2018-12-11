@@ -1,5 +1,8 @@
 window.onload = loadPage();
 
+/**
+ * Load the index page
+ */
 function loadPage() {
     Data.getModel().load();
 
@@ -7,15 +10,18 @@ function loadPage() {
         var index = Data.getModel().createLesson();
         window.location.href = `edit.html?lessonIndex=${index}`;
     });
-    // .parent()
-    // .prop("href", `edit.html?lessonIndex=${lessonIndex()}`);
+
     loadLessons();
 }
 
-// loads view
+/**
+ * Load the lessons
+ */
 function loadLessons() {
     $("#lessons").empty();
     var lessons = Data.getModel().getLessons();
+
+    // display a message if there are no lessons.
     if (lessons.length === 0) {
         var html = `
             <div class="col-12">
@@ -36,6 +42,11 @@ function loadLessons() {
     }
 }
 
+/**
+ * Create the html card element of a lesson at an index
+ * @param {*} i index of the lesson
+ * @param {*} lesson the lesson object itself
+ */
 function createLesson(i, lesson) {
     var firstGif;
     if (lesson.gifs.length === 0) {

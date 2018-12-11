@@ -2,6 +2,9 @@ window.onload = loadPage();
 
 var searchResults;
 
+/**
+ * Get the lesson index of the lesson being edited from the URL
+ */
 function lessonIndex() {
     var vars = {};
     var parts = window.location.href.replace(
@@ -13,9 +16,13 @@ function lessonIndex() {
     return vars["lessonIndex"];
 }
 
+/**
+ * Load the page. This function loads in the appropriate lesson from the cache.
+ */
 function loadPage() {
     Data.getModel().load();
 
+    // set up sortable for the gifs to enable drag and drop
     $(function() {
         $("#includedLessons").sortable({
             start: function(event, ui) {
@@ -35,10 +42,12 @@ function loadPage() {
         });
     });
 
+    // set link of the done button to the view page
     $("#doneButton")
         .parent()
         .prop("href", `view.html?lessonIndex=${lessonIndex()}`);
 
+    // callback for the delete confirmed button
     var confirmDeleteButton = $("#confirmDeleteButton");
     confirmDeleteButton.click(function(e) {
         Data.getModel().deleteLesson(lessonIndex());
@@ -47,9 +56,18 @@ function loadPage() {
 
     // search button callback
     var searchButton = $("#searchGifs");
+    var searchInput = $("#searchInput");
     searchButton.click(function(e) {
         var text = $("#searchInput").val();
         searchGifs(text);
+    });
+
+    // search when enter is pressed
+    searchInput.keypress(function(e) {
+        if (e.keyCode === 13) {
+            var text = $("#searchInput").val();
+            searchGifs(text);
+        }
     });
 
     // set name of lesson from data structure
@@ -101,8 +119,9 @@ function refreshFromData() {
     refreshCallbacks();
 }
 
-// loads view
+// loads view for this lesson
 function loadLesson(lesson) {
+    // if no gifs in lesson yet, display a message
     if (lesson.gifs.length === 0) {
         var html = `
             <div class="col-12">
@@ -115,12 +134,17 @@ function loadLesson(lesson) {
         $("#includedLessons").append(message);
         return;
     }
+    // load each gif in lesson into a card and display it
     for (let gif of lesson.gifs) {
         var gifObj = createAddedGif(gif);
         $("#includedLessons").append(gifObj);
     }
 }
 
+/**
+ * Generate the element for a given gif
+ * @param {*} gif gif object to add
+ */
 function createAddedGif(gif) {
     var description = gif.description;
     var gifUrl = gif.images.fixed_height.url;
@@ -166,7 +190,12 @@ function createAddedGif(gif) {
     return $.parseHTML(html);
 }
 
+/**
+ * Refresh the callback methods on all the variable buttons.
+ * This must be called for instance when a new gif is added to the lesson to set up the Delete Gif button
+ */
 function refreshCallbacks() {
+    // Delete button callback
     var deleteButtons = $(".delete-gif-button");
     deleteButtons.off();
     deleteButtons.click(function(e) {
@@ -176,6 +205,7 @@ function refreshCallbacks() {
         deleteGif(index);
     });
 
+    // Change gif description callback
     var gifDescriptions = $(".gifDescription");
     gifDescriptions.off();
     gifDescriptions.change(function(e) {
@@ -185,6 +215,7 @@ function refreshCallbacks() {
         Data.getModel().setGifDescription(lessonIndex(), index, $(this).val());
     });
 
+    // Add button callback
     var addButtons = $(".add-gif-button");
     addButtons.off();
     addButtons.click(function(e) {
@@ -196,15 +227,26 @@ function refreshCallbacks() {
     });
 }
 
+/**
+ *  Delete a gif at a given index
+ * @param {*} index index of gif to delete
+ */
 function deleteGif(index) {
     Data.getModel().removeGif(lessonIndex(), index);
     refreshFromData();
 }
 
+/**
+ * Searches and loads the results of the API call
+ * @param {*} text search query
+ */
 function searchGifs(text) {
+    // Clear previous results
     $("#searchBarRow")
         .nextAll("div")
         .remove();
+
+    // Display message if no text is entered
     if (!text || text === "") {
         var html = `<div class="row" id="searchAlert">
                 <div class="col-12">
@@ -218,13 +260,14 @@ function searchGifs(text) {
         return;
     }
 
+    // Start loader and disable search button
     var html = `<div class="loader"></div>`;
     var loader = $.parseHTML(html);
     $("#searchGifs").attr("disabled", "disabled");
     $("#searchGifs").html(loader);
 
+    // Make query and set up callback
     var searched = gifSearch(text, "pg").then(function(result) {
-        console.log(result);
         searchResults = result;
         $("#searchGifs").html("Search");
         $("#searchGifs").removeAttr("disabled");
@@ -232,6 +275,7 @@ function searchGifs(text) {
 
         $("#searchBarRow").after($.parseHTML(html));
 
+        // Append each result
         for (let gif of result) {
             var gifObj = createSearchedGif(gif);
             $("#gifs-output").append(gifObj);
@@ -239,6 +283,11 @@ function searchGifs(text) {
         refreshCallbacks();
     });
 }
+
+/**
+ * Create card element for a given gif result
+ * @param {*} gif object returned by the api
+ */
 function createSearchedGif(gif) {
     var gifUrl = gif.url;
     var html = `<div class="gif-container">
@@ -251,6 +300,10 @@ function createSearchedGif(gif) {
     return $.parseHTML(html);
 }
 
+/**
+ * Add Gif from the search results to the lesson
+ * @param {*} index
+ */
 function addGif(index) {
     var selectedGif = searchResults[index];
     Data.getModel().addGif(lessonIndex(), selectedGif);
