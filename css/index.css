@@ -5,13 +5,20 @@
  */
 
 body {
-    padding-top: 54px;
+    background-color: #343a40;
+    color: white;
+    padding-bottom: 250px;
 }
 
-@media (min-width: 992px) {
-    body {
-        padding-top: 56px;
-    }
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: white;
 }
 
 .portfolio-item {
@@ -25,4 +32,16 @@ body {
 #newLessonButton {
     margin-top: 10px;
     float: right;
+}
+
+.card-title a {
+    font-family: "rubikmedium";
+    font-size: 16pt;
+    color: #343a40;
+}
+
+.card-body p {
+    font-family: "rubikitalic";
+    color: #343a40;
+    font-size: 12pt;
 }

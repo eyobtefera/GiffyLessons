@@ -124,16 +124,16 @@ function loadLesson(lesson) {
 function createAddedGif(gif) {
     var description = gif.description;
     var gifUrl = gif.images.fixed_height.url;
-    var html =
-        `<div class="col-lg-3 col-sm-4 col-xs-6 portfolio-item">
+    var html = `<div class="col-lg-3 col-sm-4 col-xs-6 portfolio-item">
                     <div class="card h-100">
-                        <img
-                            class="card-img-top"
-                            src="` +
-        gifUrl +
-        `"
-                            alt=""
-                        />
+
+                    <div class="card-img-container">
+                            <img
+                                class="card-img-top"
+                                src="${gifUrl}"
+                                alt=""
+                            />
+                        </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="descriptionTextArea">
@@ -143,9 +143,8 @@ function createAddedGif(gif) {
                                     class="form-control rounded-0 gifDescription"
                                     id="descriptionTextArea"
                                     rows="3"
-                                >` +
-        description +
-        `</textarea>
+                                >${description}
+                                 </textarea>
                                 <div class="text-center" style="width:100%">
                                     <button
                                         type="button"
@@ -243,7 +242,7 @@ function searchGifs(text) {
 function createSearchedGif(gif) {
     var gifUrl = gif.url;
     var html = `<div class="gif-container">
-                <img src="${gif.url}" class="gif">
+                <img src="${gif.url}" class="gif loadingImage">
                 <div class="middle">
                     <button type="button" class="btn btn-success add-gif-button">Add</button>
                 </div>

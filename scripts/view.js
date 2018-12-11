@@ -20,8 +20,10 @@ function loadPage() {
     $("#gifCarousel").append(createCarousel());
 
     $("#lessonName").text(Data.getModel().getLesson(lessonIndex()).name);
-    $("#lessonDescription").text(
-        Data.getModel().getLesson(lessonIndex()).description
+    $("#lessonDescription").html(
+        `<span style="font-family: 'rubikmedium'">Description: </span> ${
+            Data.getModel().getLesson(lessonIndex()).description
+        }`
     );
 
     $("#editLessonButton")
@@ -110,7 +112,7 @@ function createCarousel() {
 function createGifString(index, gif, activeString) {
     return `<div class="carousel-item  ${activeString}">
         <img
-            class="d-block w-100"
+            class="d-block"
             src="${gif.url}"
             alt="Step ${index + 1}"
         />
