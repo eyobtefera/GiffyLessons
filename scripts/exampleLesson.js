@@ -1,6 +1,80 @@
 /**
  * This is an example data set with a lesson that is loaded on the first use of the application
  */
+
+var howToCreateLesson = {
+    name: "How to create a Giffy Lesson",
+    description: "A brief guide on how to use Giffy Lessons!",
+    gifs: [
+        {
+            url: "img/howToGiffyLesson/step1.gif",
+            description:
+                "Start on the home page. Click the plus button to create a new lesson.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step1.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step2.gif",
+            description: "Give your lesson a name and a description.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step2.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step3.gif",
+            description:
+                "Now it's time to add some gifs. Search a query of your choice to see the related gifs. Scroll down to reveal more.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step3.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step4.gif",
+            description:
+                "Hover over a gif to reveal the add gif button. Click the plus button to add the gif to the lesson.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step4.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step5.gif",
+            description: "Give each step a description",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step5.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step6.gif",
+            description: "Drag to gifs to reorder them.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step6.gif"
+                }
+            }
+        },
+        {
+            url: "img/howToGiffyLesson/step7.gif",
+            description:
+                "Lessons save automatically with each edit. Click done to view your lesson.",
+            images: {
+                fixed_height: {
+                    url: "img/howToGiffyLesson/step7.gif"
+                }
+            }
+        }
+    ]
+};
 var exampleLesson = {
     name: "Example Lesson: How to handle finals week?",
     description: "Here are some critical steps to succeeding in your finals:)",

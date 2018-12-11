@@ -331,7 +331,7 @@ $(window).scroll(function() {
 
     // handle scroll to top
     var height = $(window).scrollTop();
-    if (height > 300) {
+    if (height > 100) {
         $("#scrollToTopButton").fadeIn();
     } else {
         $("#scrollToTopButton").fadeOut();

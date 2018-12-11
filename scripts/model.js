@@ -131,7 +131,7 @@ class Model {
             this.data = temp;
         } else {
             this.data = {
-                lessons: [exampleLesson]
+                lessons: [howToCreateLesson, exampleLesson]
             };
         }
     }
